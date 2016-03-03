@@ -858,7 +858,8 @@ def pred_probs(f_log_probs, prepare_data, options, iterator, verbose=True):
             probs.append(pp)
 
         if numpy.isnan(numpy.mean(probs)):
-            ipdb.set_trace()
+            #ipdb.set_trace()
+            pass
 
         if verbose:
             print >>sys.stderr, '%d samples computed' % (n_done)
@@ -1265,8 +1266,9 @@ def train(dim_word=100,  # word vector dimensionality
                         break
 
                 if numpy.isnan(valid_err):
-                    ipdb.set_trace()
-
+                    #ipdb.set_trace()
+                    pass
+                
                 print 'Valid ', valid_err
 
             # finish after this many updates

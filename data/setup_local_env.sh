@@ -7,10 +7,10 @@
 CODE_DIR=${HOME}/codes/dl4mt-material
 
 # code repository 
-CODE_CENTRAL=https://github.com/kyunghyuncho/dl4mt-material
+CODE_CENTRAL=https://github.com//dl4mt-material
 
 # our input files will reside here
-DATA_DIR=${HOME}/data
+DATA_DIR=${HOME}/dataZ-TANG
 
 # our trained models will be saved here
 MODELS_DIR=${HOME}/models

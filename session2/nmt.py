@@ -1268,7 +1268,7 @@ def train(dim_word=100,  # word vector dimensionality
                 if numpy.isnan(valid_err):
                     #ipdb.set_trace()
                     pass
-                
+
                 print 'Valid ', valid_err
 
             # finish after this many updates

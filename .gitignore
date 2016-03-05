@@ -3,3 +3,7 @@
 
 #python
 *.pyc
+
+#model file
+*.npz
+*.pkl

@@ -26,12 +26,12 @@ def main(job_id, params):
                      dispFreq=10,
                      saveFreq=100,
                      sampleFreq=100,
-                     datasets=['../../../data/europarl-v7.fr-en.en.tok',
-                               '../../../data/europarl-v7.fr-en.fr.tok'],
-                     valid_datasets=['../../../data/newstest2011.en.tok',
-                                     '../../../data/newstest2011.fr.tok'],
-                     dictionaries=['../../../data/europarl-v7.fr-en.en.tok.pkl',
-                                   '../../../data/europarl-v7.fr-en.fr.tok.pkl'],
+                     datasets=['../../data/train.en.tok',
+                               '../../data/train.de.tok'],
+                     valid_datasets=['../../data/val.en.tok',
+                                     '../../data/val.de.tok'],
+                     dictionaries=['../../data/train.en.tok.pkl',
+                                   '../../data/train.de.tok.pkl'],
                      use_dropout=params['use-dropout'][0],
                      overwrite=False)
     return validerr

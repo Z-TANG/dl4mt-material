@@ -1,13 +1,13 @@
 #!/usr/bin/python
-
+# downloading urls and file names have been changed for wmt16
 import argparse
 import logging
 import os
 import tarfile
 import urllib2
 
-TRAIN_DATA_URL = 'http://www.statmt.org/europarl/v7/fr-en.tgz'
-VALID_DATA_URL = 'http://matrix.statmt.org/test_sets/newstest2011.tgz'
+TRAIN_DATA_URL = 'http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz'
+VALID_DATA_URL = 'http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/validation.tar.gz'
 
 parser = argparse.ArgumentParser(
     description="""
@@ -84,14 +84,14 @@ def extract_tar_file_to(file_to_extract, extract_into, names_to_look):
 
 
 def main():
-    train_data_file = os.path.join(args.outdir, 'train_data.tgz')
-    valid_data_file = os.path.join(args.outdir, 'valid_data.tgz')
+    train_data_file = os.path.join(args.outdir, 'training.tar.gz')
+    valid_data_file = os.path.join(args.outdir, 'validation.tar.gz')
 
-    # Download europarl v7 and extract it
+    # Download training set and extract it
     download_and_write_file(TRAIN_DATA_URL, train_data_file)
     extract_tar_file_to(
         train_data_file, os.path.dirname(train_data_file),
-        ["{}-{}".format(args.source, args.target)])
+        ["train.en","train.de"])
 
     # Download development set and extract it
     download_and_write_file(VALID_DATA_URL, valid_data_file)

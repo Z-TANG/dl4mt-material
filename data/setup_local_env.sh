@@ -3,17 +3,19 @@
 # a local machine, copy under your home directory and run.
 # Note that, Theano is NOT installed by this script.
 
+#Modified for wmt16
+
 # code directory for cloned repositories
-CODE_DIR=${HOME}/codes/dl4mt-material
+CODE_DIR=${HOME}/dl4mt/codes
 
 # code repository 
 CODE_CENTRAL=https://github.com/Z-TANG/dl4mt-material
 
 # our input files will reside here
-DATA_DIR=${HOME}/data
+DATA_DIR=${HOME}/dl4mt/data
 
 # our trained models will be saved here
-MODELS_DIR=${HOME}/models
+MODELS_DIR=${HOME}/dl4mt/models
 
 
 # clone the repository from github into code directory
@@ -22,22 +24,22 @@ if [ ! -d "${CODE_DIR}" ]; then
     git clone ${CODE_CENTRAL} ${CODE_DIR}
 fi
 
-# download the europarl v7 and validation sets and extract
+# download the training and validation sets and extract
 python ${CODE_DIR}/data/download_files.py \
-    -s='fr' -t='en' \
-    --source-dev=newstest2011.fr \
-    --target-dev=newstest2011.en \
+    -s='en' -t='de' \
+    --source-dev=val.en \
+    --target-dev=val.de \
     --outdir=${DATA_DIR}
 
 # tokenize corresponding files
-perl ${CODE_DIR}/data/tokenizer.perl -l 'fr' < ${DATA_DIR}/test2011/newstest2011.fr > ${DATA_DIR}/newstest2011.fr.tok
-perl ${CODE_DIR}/data/tokenizer.perl -l 'en' < ${DATA_DIR}/test2011/newstest2011.en > ${DATA_DIR}/newstest2011.en.tok
-perl ${CODE_DIR}/data/tokenizer.perl -l 'fr' < ${DATA_DIR}/europarl-v7.fr-en.fr > ${DATA_DIR}/europarl-v7.fr-en.fr.tok
-perl ${CODE_DIR}/data/tokenizer.perl -l 'en' < ${DATA_DIR}/europarl-v7.fr-en.en > ${DATA_DIR}/europarl-v7.fr-en.en.tok
+perl ${CODE_DIR}/data/tokenizer.perl -l 'en' < ${DATA_DIR}/val.en > ${DATA_DIR}/val.en.tok
+perl ${CODE_DIR}/data/tokenizer.perl -l 'de' < ${DATA_DIR}/val.de > ${DATA_DIR}/val.de.tok
+perl ${CODE_DIR}/data/tokenizer.perl -l 'en' < ${DATA_DIR}/train.en > ${DATA_DIR}/train.en.tok
+perl ${CODE_DIR}/data/tokenizer.perl -l 'de' < ${DATA_DIR}/train.de > ${DATA_DIR}/train.de.tok
 
 # extract dictionaries
-python ${CODE_DIR}/data/build_dictionary.py ${DATA_DIR}/europarl-v7.fr-en.fr.tok
-python ${CODE_DIR}/data/build_dictionary.py ${DATA_DIR}/europarl-v7.fr-en.en.tok
+python ${CODE_DIR}/data/build_dictionary.py ${DATA_DIR}/train.en.tok
+python ${CODE_DIR}/data/build_dictionary.py ${DATA_DIR}/train.de.tok
 
 # create model output directory if it does not exist 
 if [ ! -d "${MODELS_DIR}" ]; then

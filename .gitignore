@@ -7,3 +7,10 @@
 #model file
 *.npz
 *.pkl
+
+#redirect file
+result.txt
+
+#preprocessing file
+.tok
+.pkl

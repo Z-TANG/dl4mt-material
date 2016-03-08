@@ -2,7 +2,7 @@
 Translates a source file using a translation model.
 '''
 import argparse
-
+import theano
 import numpy
 import cPickle as pkl
 

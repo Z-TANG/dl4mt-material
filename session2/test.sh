@@ -7,7 +7,7 @@
 
 export THEANO_FLAGS=device=cpu,floatX=float32
 
-cd $PBS_O_WORKDIR
+#cd $PBS_O_WORKDIR
 python ./translate.py -n -p 8 \
 	./model_hal.npz  \
 	../../data/train.en.tok.pkl \

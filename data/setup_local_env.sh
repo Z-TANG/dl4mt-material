@@ -6,16 +6,16 @@
 #Modified for wmt16
 
 # code directory for cloned repositories
-CODE_DIR=${HOME}/dl4mt/codes
+CODE_DIR=/veu4/usuaris29/ztang/dl4mt/codes
 
 # code repository 
 CODE_CENTRAL=https://github.com/Z-TANG/dl4mt-material
 
 # our input files will reside here
-DATA_DIR=${HOME}/dl4mt/data
+DATA_DIR=/veu4/usuaris29/ztang/dl4mt/data
 
 # our trained models will be saved here
-MODELS_DIR=${HOME}/dl4mt/models
+MODELS_DIR=/veu4/usuaris29/ztang/dl4mt/models
 
 
 # clone the repository from github into code directory
